@@ -3,6 +3,8 @@ const app=express();
 const hbs=require('hbs');
 const fs=require('fs')
 
+const port=process.env.PORT || 3000;
+
 //other middlewares
 app.use((req,res,next)=>{
 
@@ -38,4 +40,6 @@ app.get('/about',(req,res)=>{
       res.render('about',{hh:123}) 
     })
 
-app.listen(3000)
+app.listen(port,()=>{
+    console.log(`Running on port ${port}`)
+})
